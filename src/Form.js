@@ -28,32 +28,47 @@ class Form extends Component {
 
     return(
       <form>
-        <label htmlFor="name">Nome</label>
-        <input
-          id="name"
-          type="text"
-          name="name"
-          value={name}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="book">Livro</label>
-        <input
-          id="book"
-          type="text"
-          name="book"
-          value={book}
-          onChange={this.handleChange}
-        />
-        <label htmlFor="price">Preço</label>
-        <input
-          id="price"
-          type="text"
-          name="price"
-          value={price}
-          onChange={this.handleChange}
-        />
-        <button type="button" onClick={this.onSubmit}>Salvar</button>
-      </form>);
+        <div className="row">
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="name">Nome</label>
+            <input
+              className="validate"
+              id="name"
+              type="text"
+              name="name"
+              value={name}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="book">Livro</label>
+            <input
+              className="validate"
+              id="book"
+              type="text"
+              name="book"
+              value={book}
+              onChange={this.handleChange}
+            />
+          </div>
+          <div className="input-field col s4">
+            <label className="input-field" htmlFor="price">Preço</label>
+            <input
+              className="validate"
+              id="price"
+              type="text"
+              name="price"
+              value={price}
+              onChange={this.handleChange}
+            />
+          </div>
+          <button
+            className="waves-effect waves-light btn indigo lighten-2"
+            type="button" onClick={this.onSubmit}>Salvar
+          </button>
+        </div>
+      </form>
+    );
   }
 }
 
