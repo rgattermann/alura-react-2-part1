@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {Component} from 'react';
 import './App.css';
 import Table from "./Table";
 
-function App() {
-  const authors = [{
+class App extends Component{
+  state = {
+    authors: [{
       name: 'Paulo',
       book: 'React',
       price: '1000'
@@ -22,10 +23,23 @@ function App() {
       name: 'Bruno',
       book: 'DevOps',
       price: '100'
-    }
-  ];
+    },
+  ]};
 
-  return <Table authors={authors} />;
+  removeAuthor = index => {
+    const { authors } = this.state;
+
+    this.setState({
+      authors: authors.filter((author, authorIndex) => authorIndex !== index)
+    });
+  }
+
+  render() {
+    return <Table
+    authors={this.state.authors}
+    removeAuthor={this.removeAuthor}
+    />;
+  }
 }
 
 export default App;
