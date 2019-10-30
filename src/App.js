@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import Table from "./Table";
+import Form from "./Form";
 
 class App extends Component{
   state = {
@@ -34,11 +35,17 @@ class App extends Component{
     });
   }
 
+  handleSubmit = author => {
+    this.setState({authors: [...this.state.authors, author]});
+  };
+
   render() {
-    return <Table
-    authors={this.state.authors}
-    removeAuthor={this.removeAuthor}
-    />;
+    return <React.Fragment>
+      <Table
+        authors={this.state.authors}
+        removeAuthor={this.removeAuthor}/>
+      <Form handleSubmit={this.handleSubmit}/>
+    </React.Fragment >;
   }
 }
 
